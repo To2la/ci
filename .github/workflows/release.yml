@@ -3,11 +3,11 @@ on:
     tags:
       - '*'
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  create_release:
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-      - uses: actions/checkout@v2
-      - run: tools/build.sh
       - id: create_release
         uses: actions/create-release@v1
         env:
@@ -15,11 +15,30 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
+  build_ported_tools:
+    runs-on: ubuntu-20.04
+    needs: create_release
+    steps:
+      - uses: actions/checkout@v2
+      - run: tools/build.sh
       - uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
           asset_path: out/ported-tools-linux-x86_64.tar.xz
           asset_name: ported-tools-linux-x86_64.tar.xz
+          asset_content_type: application/x-xz
+  strip_clang:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: tools/strip-clang.sh
+      - uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
+          asset_path: clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz
+          asset_name: clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz
           asset_content_type: application/x-xz
