@@ -60,5 +60,10 @@ rm -f "$PROJECT_ROOT/out/bin/nm"
 popd
 rm -rf cctools-port
 
+# Unported tools
+cp tools/dummy_tool out/bin/codesign
+cp tools/dummy_tool out/bin/ibtool
+cp tools/dummy_tool out/bin/swift-stdlib-tool
+
 cd out
 tar -Jcf "ported-tools-"$(uname | tr '[:upper:]' '[:lower:]')"-"$(arch)".tar.xz" bin lib
