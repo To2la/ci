@@ -5,8 +5,8 @@ set -euo pipefail
 SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_ROOT}/.." && pwd)"
 
-sudo apt update -qq \
-  && DEBIAN_FRONTEND="noninteractive" apt install -qqy --no-install-recommends \
+sudo apt update -qq
+DEBIAN_FRONTEND="noninteractive" sudo apt install -qqy --no-install-recommends \
   doxygen zip build-essential curl git cmake zlib1g-dev libpng-dev libxml2-dev \
   gobjc python vim-tiny ca-certificates ninja-build patchelf
 
