@@ -4,7 +4,7 @@ WORKDIR /work
 
 RUN apt-get update -qq \
   && DEBIAN_FRONTEND="noninteractive" apt-get install -qqy --no-install-recommends \
-  curl ca-certificates python xz-utils \
+  curl ca-certificates python python3 xz-utils \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
