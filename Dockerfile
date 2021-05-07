@@ -4,8 +4,10 @@ WORKDIR /work
 
 RUN apt-get update -qq \
   && DEBIAN_FRONTEND="noninteractive" apt-get install -qqy --no-install-recommends \
-  doxygen zip build-essential curl git cmake zlib1g-dev libpng-dev libxml2-dev \
-  gobjc python python3 vim-tiny ca-certificates ninja-build patchelf \
+  doxygen zip build-essential curl git cmake libpng-dev libxml2-dev \
+  gobjc python vim-tiny ca-certificates ninja-build patchelf python3 unzip \
+  binutils gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libpython2.7 \
+  libsqlite3-0 libstdc++-9-dev libxml2 libz3-dev pkg-config tzdata zlib1g-dev \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
