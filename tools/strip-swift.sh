@@ -12,6 +12,7 @@ mkdir bin-new
 mv \
   bin/swift \
   bin/swiftc \
+  bin/swift-build \
   bin-new
 rm -rf bin lib libexec include share
 mv bin-new bin
