@@ -22,4 +22,5 @@ mv \
 rm -rf bin lib libexec include share
 mv bin-new bin
 popd
-tar -Jcf clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04
+tar -Jcf clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04
+sha256sum clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz > clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz.sha256

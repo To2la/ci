@@ -17,4 +17,5 @@ mv \
 rm -rf bin lib libexec include share
 mv bin-new bin
 popd
-tar -Jcf swift-5.3.3-RELEASE-ubuntu20.04.tar.xz swift-5.3.3-RELEASE-ubuntu20.04
+tar -Jcf swift-5.3.3-RELEASE-ubuntu20.04-stripped.tar.xz swift-5.3.3-RELEASE-ubuntu20.04
+sha256sum swift-5.3.3-RELEASE-ubuntu20.04-stripped.tar.xz > swift-5.3.3-RELEASE-ubuntu20.04-stripped.tar.xz.sha256

@@ -66,4 +66,6 @@ cp tools/dummy_tool out/bin/ibtool
 cp tools/dummy_tool out/bin/swift-stdlib-tool
 
 cd out
-tar -Jcf "ported-tools-"$(uname | tr '[:upper:]' '[:lower:]')"-"$(arch)".tar.xz" bin lib
+archive_filename="ported-tools-"$(uname | tr '[:upper:]' '[:lower:]')"-"$(arch)".tar.xz"
+tar -Jcf "$archive_filename" bin lib
+sha256sum "$archive_filename" > "$archive_filename.sha256"
