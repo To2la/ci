@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-curl -LO https://download.swift.org/builds/swift-5.5.1-release/ubuntu2004/swift-5.5.1-RELEASE/swift-5.5.1-RELEASE-ubuntu20.04.tar.gz
+curl -LO https://download.swift.org/swift-5.5.1-release/ubuntu2004/swift-5.5.1-RELEASE/swift-5.5.1-RELEASE-ubuntu20.04.tar.gz
 tar -xf swift-5.5.1-RELEASE-ubuntu20.04.tar.gz
 pushd swift-5.5.1-RELEASE-ubuntu20.04/usr
 mkdir bin-new
