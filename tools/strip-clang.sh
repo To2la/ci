@@ -12,7 +12,7 @@ mkdir bin-new
 mv \
   bin/clang \
   bin/clang++ \
-  bin/clang-12 \
+  bin/clang-13 \
   bin/ld.lld \
   bin/ld64.lld \
   bin/ld64.lld.darwinnew \
