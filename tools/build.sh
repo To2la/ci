@@ -14,7 +14,7 @@ mkdir -p out/lib out/bin
 
 git clone https://github.com/apple-cross-toolchain/xcbuild.git
 pushd xcbuild
-git checkout aac17fcf012283325db76ce41458cb9c06f62271
+git checkout 5d2947b1db0a6ea77db6e5c90da0256400230343
 bazel build //Libraries:xcbuild
 tar -xf bazel-bin/Libraries/xcbuild.tar.xz -C "$PROJECT_ROOT/out/bin"
 popd
