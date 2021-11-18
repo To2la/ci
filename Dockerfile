@@ -11,7 +11,7 @@ RUN apt-get update -qq \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
-RUN curl -LO https://github.com/apple-cross-toolchain/apple-sdks/releases/download/0.0.5/apple-sdks-xcode-13.1.tar.xz \
+RUN curl -LO https://github.com/apple-cross-toolchain/apple-sdks/releases/download/0.5.0/apple-sdks-xcode-13.1.tar.xz \
   && tar -xf apple-sdks-xcode-13.1.tar.xz \
   && mkdir -p /Applications \
   && mv Xcode.app /Applications \
