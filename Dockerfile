@@ -11,13 +11,13 @@ RUN apt-get update -qq \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
-RUN curl -LO https://github.com/apple-cross-toolchain/apple-sdks/releases/download/0.0.4/apple-sdks-xcode-12.4.tar.xz \
-  && tar -xf apple-sdks-xcode-12.4.tar.xz \
+RUN curl -LO https://github.com/apple-cross-toolchain/apple-sdks/releases/download/0.0.5/apple-sdks-xcode-13.1.tar.xz \
+  && tar -xf apple-sdks-xcode-13.1.tar.xz \
   && mkdir -p /Applications \
   && mv Xcode.app /Applications \
-  && rm -rf apple-sdks-xcode-12.4.tar.xz
+  && rm -rf apple-sdks-xcode-13.1.tar.xz
 
-RUN curl -LO https://github.com/apple-cross-toolchain/ci/releases/download/0.0.6/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz \
+RUN curl -LO https://github.com/apple-cross-toolchain/ci/releases/download/0.0.14/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz \
   && tar -xf clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz \
   && mv clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/* /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ \
   && rm -rf clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04-stripped.tar.xz clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04
@@ -27,7 +27,7 @@ RUN curl -LO https://github.com/apple-cross-toolchain/ci/releases/download/0.0.6
   && mv swift-5.3.3-RELEASE-ubuntu20.04/usr/bin/* /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ \
   && rm -rf swift-5.3.3-RELEASE-ubuntu20.04-stripped.tar.xz swift-5.3.3-RELEASE-ubuntu20.04
 
-RUN curl -LO https://github.com/apple-cross-toolchain/ci/releases/download/0.0.4/ported-tools-linux-x86_64.tar.xz \
+RUN curl -LO https://github.com/apple-cross-toolchain/ci/releases/download/0.0.14/ported-tools-linux-x86_64.tar.xz \
   && tar -xf ported-tools-linux-x86_64.tar.xz \
   && cd bin \
   && install codesign plutil sw_vers xcrun xcodebuild xcode-select /usr/bin/ \
